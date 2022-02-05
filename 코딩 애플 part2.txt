@@ -1,0 +1,200 @@
+코딩 애플
+
+part2
+
+(1강)
+
+웹사이트 기능만들기 기본
+
+1.서버로 데이터 전송할 수 있는 UI 만들고
+2.서버에서 원하는대로 정보를 처리해주면 됨
+
+	Database란
+
+데이터를 일정한 형식으로 저장할 수 있게 도와주는 곳. (엑셀)
+
+	Database의 종류
+
+1. 관계형 DB
+
+엑셀처럼 가로 세로 칸이 나눠져있는 DB
+ 
+ex) MySQL, MariaDB, Oracle, MS SQL Server ...
+
+그냥 맨위에 제목달고 밑에 데이터 집어 넣으면 됨.
+
+but 3차원의 데이터를 잘 못 다룸. (가로 세로 2차원의 한계, 극복하려면 새로운 표를 하나 더 만들어야함.)
+
+특징 : SQL이라는 Qurey Language를 사용. 대량의 데이터를 입출력하고 Query를 줄 때(내가 원하는 데이터만 뽑을 때)
+매우 빠르고 효율적.
+
+
+2. NoSQL 비관계형 DB
+
+JSON형식으로 데이터 저장.
+
+ex) Dynamo, Oracle NoSQL, MongoDB, Redis, Cassandra...
+
+장점 : 아주 쉽고 자유롭게 데이터를 저장 할 수 있음.
+
+관계형의 경우 세로줄 컬럼 이름부터 잘 작성하고 어떤 데이터를 어디다가 넣을지 미리 생각해야함.
+
+but NoSQL은 대충 집어넣어도 나중에 다 사용가능.
+
+
+	MongoDB 무료 호스팅
+
+MongoDB atlas : 512Mb 무료 호스팅 해줌.
+
+create database
+
+무료 shared 선택
+
+create cluster
+
+user의 아이디 비번 생성
+
+network access메뉴에서 IP추가(데이터베이스 접속할 수 있는 IP를 미리 정의해놓는 일종의 보안장치)
+
+allow access form anywhere
+
+database/collection 만들기 진행
+
+cluster는 하나의 호스팅 공간이고
+
+그 안에 데이터베이스를 만들어야 데이터를 저장할 수 있음.
+
+database->browse collection->add my own data
+
+
+	만든 database 접속(connect)하는 법
+
+cluster에서 connect버튼 클릭
+
+-> connect your application
+
+->driver : nodejs , version : current
+
+->코드 (URL) 저장
+
+
+	다시 server.js
+
+mongodb 라이브러리 설치 
+
+%npm install mongodb (%npm install mongodb@3.6.4)
+
+설치 후
+
+const MongoClient = require('mongodb').MongoClient;
+MongoClient.connect('atlas에서 준 URL', function(err,client){
+	
+})
+
+URL에 <password>에는 내 비밀번호로 바꿔야함.
+
+	다 한 후
+
+connect코드 콜백함수 안에 app.listen 넣어서 listening on 8080 뜨는지 확인.
+
+
+
+(2강 DB에 자료 저장하는 법)
+
+	에러 처리 하는 법
+
+MongoClient.connect('mongodb+srv://00fanxi:wqt0519@cluster0.onkrt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',function(err,client){
+	
+	app.listen(8080, function(){
+		console.log('listening on 8080');
+	});
+	
+});
+
+function(err,client)의 err 파라미터 : 에러가 발생했을 시 어떤 에러인지 알려주는 파라미터.
+
+따라서
+
+if(err) {return console.log(err)}
+을 콜백함수 안에 넣으면 무슨 에러인지 콘솔창에 출력됨.
+
+*node.js에서는 if문 안에 오는게 return 한줄이라면 중가로{} 생략가능.
+
+if (err) return console.log(err)
+
+
+	DB에 저장하는 공간 생성
+
+collection : database(폴더)안의 파일들의 개념.
+
+	다시 server.js
+
+어떤 database(폴더)에 저장할 것인지를 명시해야됨.
+
+var db;
+
+db = client.db('todoapp');
+
+(todoapp이라는 database(폴더)에 연결할 것이다)
+이제 db라는 변수를 활용해서 database에 접근할 수 있다.
+
+db.collection('post').insetOne();
+
+(db안에있는 post라는 파일에 저장)
+
+.insertOne('저장할 데이터', function(에러, 결과){ });
+
+파라미터1 : 저장할 데이터 (object자료형으로 저장)
+파라미터2 : 저장이 완료됬을 시 실행할 콜백함수.
+
+
+	최종 형태
+var db;
+const MongoClient = require('mongodb').MongoClient;
+MongoClient.connect('mongodb+srv://00fanxi:wqt0519@cluster0.onkrt.mongodb.net/todoapp?retryWrites=true&w=majority',{useUnifiedTopology:true}, function(err,client){
+	//연결되면 할일
+	if (err) return console.log(err)
+	
+	db = client.db('todoapp');
+	
+	db.collection('post').insertOne( {이름 : 'John', 나이 : 20},function(err,result){
+		console.log('저장완료');
+	});
+	
+	
+	app.listen(8080, function(){
+		console.log('listening on 8080');
+	});
+});
+
+({useUnifiedTopology:true} 이건 쓰면 좋은거. 워닝메세지를 제거해준다.)
+(var db로 페이지 전체에서 쓸 수 있는 전역 변수를 하나 만들고,
+client.db('todoapp')이라는 함수로 todoapp이라는 db에 접속해주세요라는 명령을 내렸다.)
+
+	server.js다시 실행 후 atlas
+
+_id:ObjectId("61fe89486297dead02d9ccd8)
+이름 : "John"
+나이 : 20
+
+(저장된 데이터를 확인 가능. object안에 데이터들은 자료형에 따라 int인지 string인지 판단된다.)
+
+	_id : ObjectId( )
+
+데이터 저장시 _id를 꼭 적어야함. 안적을시 강제로 부여해줌.
+
+부여하는 방법 저장할 객체 안에 적으면됨.
+
+{_id : 100 ,이름 : 'John', 나이 : 20}
+
+
+
+(3강 : HTML에 DB데이터 꽂아넣는 법1 - EJS)
+
+
+
+
+
+
+
+
