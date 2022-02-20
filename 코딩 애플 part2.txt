@@ -18,7 +18,7 @@ part2
 1. 관계형 DB
 
 엑셀처럼 가로 세로 칸이 나눠져있는 DB
- 
+
 ex) MySQL, MariaDB, Oracle, MS SQL Server ...
 
 그냥 맨위에 제목달고 밑에 데이터 집어 넣으면 됨.
@@ -80,7 +80,7 @@ cluster에서 connect버튼 클릭
 
 	다시 server.js
 
-mongodb 라이브러리 설치 
+mongodb 라이브러리 설치
 
 %npm install mongodb (%npm install mongodb@3.6.4)
 
@@ -88,7 +88,7 @@ mongodb 라이브러리 설치
 
 const MongoClient = require('mongodb').MongoClient;
 MongoClient.connect('atlas에서 준 URL', function(err,client){
-	
+
 })
 
 URL에 <password>에는 내 비밀번호로 바꿔야함.
@@ -104,11 +104,11 @@ connect코드 콜백함수 안에 app.listen 넣어서 listening on 8080 뜨는�
 	에러 처리 하는 법
 
 MongoClient.connect('mongodb+srv://00fanxi:wqt0519@cluster0.onkrt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',function(err,client){
-	
+
 	app.listen(8080, function(){
 		console.log('listening on 8080');
 	});
-	
+
 });
 
 function(err,client)의 err 파라미터 : 에러가 발생했을 시 어떤 에러인지 알려주는 파라미터.
@@ -154,14 +154,14 @@ const MongoClient = require('mongodb').MongoClient;
 MongoClient.connect('mongodb+srv://00fanxi:wqt0519@cluster0.onkrt.mongodb.net/todoapp?retryWrites=true&w=majority',{useUnifiedTopology:true}, function(err,client){
 	//연결되면 할일
 	if (err) return console.log(err)
-	
+
 	db = client.db('todoapp');
-	
+
 	db.collection('post').insertOne( {이름 : 'John', 나이 : 20},function(err,result){
 		console.log('저장완료');
 	});
-	
-	
+
+
 	app.listen(8080, function(){
 		console.log('listening on 8080');
 	});
@@ -191,10 +191,149 @@ _id:ObjectId("61fe89486297dead02d9ccd8)
 
 (3강 : HTML에 DB데이터 꽂아넣는 법1 - EJS)
 
+	db.collection('post').insertOne( {제목 : req.body.title, 날짜 : req.body.date},function(err,result){
+		console.log('저장완료');
+	});
+
+(응답.send( ) 이 부분은 항상 존재해야함. 전송이 성공하든 실패하든 서버에서 뭔가 보내주어야함. 안그럼 브라우저 멈춤.
+메세지를 보내는거 외에도 간단한 응답코드나 리다이렉트(페이지강제이동)를 해주는 코드도 있음)
+
+	DB에 있는 데이터들을 보여주기
+
+// /list로 GET요청으로 접속하면
+// 실제 DB에 저장된 데이터들로 예쁘게 꾸며진 HTML을 보여줌
+
+	EJS 라이브러리
+
+HTML을 조금 더 쓰기 쉽게 도와주는 템플렛 엔진.(전처리 엔진)
+서버 데이터를 HTML에 쉽게 삽입하게 도와주는 HTML 렌더링 엔진.
+
+%npm install ejs
+
+(지금은 --save --dev이런거 칠 필요 없음)
+
+설치 후
+
+	server.js
+
+app.set('view engine','ejs'); --> 뷰 엔진은 ejs를 쓰겠습니다. (이렇게 등록을 해줘야 ejs로 쓴 HTML을 노드가 렌더링을 잘해줌)
+
+이후에는 확장자 명을 HTML 뿐만 아니라 ejs도 쓸 수 있게됨.
+
+ejs와 HTML의 차이 : 기본적으로 똑같음. 단 ejs는 ejs문법으로 서버테이터를 집어넣을 수 있음.
+
+	ejs 파일 안에서 데이터 삽입하는 방식
+
+<%= 서버에서 보낸 데이터의 변수명  %>
+
+ex)<%= user.name %>
+
+EJS를 사용하면 HTML에 자바스크립트 문법을 사용할 수 있음.
+
+<% if (user) { %>
+	<h2><%= user.name %></h2>
+<% } %>
+
+(HTML에 if문을 적용하거나 반복문을 적용하고 싶을 땐, <% %> 내부에 자바스크립트 문법을 담으면 됨.
+위 코드는 user라는 변수가 참일 때만 내부 <h2> 코드를 보여준다.)
+
+ejs의 대체품 : vue, react, angular
+
+	서버에서 .ejs파일 보내주는 법
+
+app.get('/list',function(req,res){
+	res.render('list.ejs'); --> .ejs를 rendering 해줌.
+});
 
 
+	Error: Failed to lookup view "list.ejs" in views directory
+
+ejs 파일들은 항상 views라는 폴더 안에 들어가있어야 함.
+
+views라는 폴더는 실행창 경로의 마지막 폴더 바로 아래 들어가있어야 함.
 
 
+(4강 : HTML에 DB데이터 꽂아넣는 법2 - DB데이터 읽기)
 
 
+	DB에 저장된 post라는 collection안의 (id가 뭐인 or 모든 or 제목이 뭐인)데이터를 꺼내주세요.
 
+db.collection('post').find();
+db.collectino('post').findOne();
+
+find( ) : DB의 post 파일에 저장된 모든 데이터를 가져온다.
+하지만 이렇게 가져오면 데이터에 포함된 메타 데이터들도 다 같이 딸려옴.
+
+따라서,
+db.collection('post').find().toArray();
+라고 치면 데이터들만 가져옴.
+
+db.collection('post').find().toArray(function(err, result){
+	console.log(result);
+});
+
+toArray()메소드 안에 콜백함수. 에러와 결과.
+(결과 출력)
+
+	ejs안에 DB에서 가져온 데이터 삽입
+
+	db.collection('post').find().toArray(function(err, result){
+		console.log(result);
+		res.render('list.ejs',{ posts : result });
+	});
+
+1.DB에서 데이터 찾아주세요
+2.찾은걸 ejs파일에 삽입.
+(res.render('list.ejs',{ posts : result }); : render()메소드, 파라미터1 = 파일 이름. 파라미터2 = 해당 파일에 넣을 데이터[보통 객체 형식으로 넣음])
+posts는 삽입한 객체안의 데이터의 속성이름.
+*render메소드는 반드시 데이터를 불러온 콜백함수 안에서 사용해야한다.(그래야 그 데이터를 렌더링한 파일에 넣을 수 있음)
+
+	.ejs 파일
+
+<%= posts %>
+
+	posts는 Array 자료형 (toArray 때문)
+
+posts 안에는 객체형식으로 저장된 데이터들이 들어있다.(find()메소드만 썼을 경우에는 객체형식)
+
+따라서, result[0] 또는 posts[0]이라고 하면 배열안의 첫번째 객체 데이터를 전송한다.
+
+result[0].제목 또는 posts[0].제목 이라고 하면 배열안의 첫번째 객체 데이터 안에 '제목'이라는 데이터명을 가진 데이터를 전송한다.
+
+<%= posts[0].제목 %>
+<%= posts[0].날짜 %>
+
+요런 식으로.
+
+	반복문 사용해서 하드코딩에서 벗어나기(EJS 문법)
+
+	서버에서 가져온 할일 리스트
+	<% for(var i =0;i<posts.length;i++){ %>
+		<h4>할일 제목 : <%= posts[i].제목 %></h4>
+		<p>할일 마감날짜 : <%= posts[i].날짜 %></p>
+	<% } %>
+
+posts.length : post collection에 있는 객체 데이터들의 개수.
+
+
+(5강 데이터베이스의 종류와 특징)
+네이버 메모
+
+(6강 게시물마다 번호달기)
+
+	auto increment(항목 추가 할때마다 자동으로 1씩 증가시켜서 저장하는 거)
+
+MongoDB는 그런거 없음.
+
+__id를 직접 부여해주어야함.
+
+그러면, '현재 총게시물개수' + 1 이렇게 부여해주면 될까?
+
+---- 좋은 방법 아님. 예를 들어 1, 2, 3, 4 이렇게 부여해주다가 중간에 2를 삭제하고 새로 데이터를 추가하면 추가전 총개수는 3이 되므로 id가 4인 데이터가 두개가 됨(id가 이미 존재할 경우 저장 자체가 안되는거 확인)
+
+따라서 영구적인 번호를 부여하는게 좋은 관습.
+
+*질문 : 그렇다면 저장할때 이미 존재하는 id를 쭉 보다가 비어있는 id중 가장 작은 수부터 부여하면 안될까?
+*질문 : 그렇게 영구적으로 부여하다보면 데이터베이스의 데이터들의 아이디값은 영구적으로 증가만 하는데 감당가능?
+
+	저장된 데이터 개수를 기록하는 collection을 따로 만들자 04:11

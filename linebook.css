@@ -1,0 +1,446 @@
+/*전체 레이아웃 관리*/
+html{
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+nav{
+	height:3rem;
+	display:flex;
+	width:100%;
+	flex-flow:row-reverse;
+	border-bottom:0.1rem black solid;
+	align-items:center;
+	background:gray;
+	padding-right:3rem;
+	position:fixed;
+	z-index:10;
+	border:solid 0.2rem white;
+}
+
+nav input{
+	height:2rem;
+	margin-right:1rem;
+}
+
+.search_string{
+	width:30rem;
+	margin-right:0;
+}
+
+.search_string_submit{
+	height:2.4rem;
+}
+
+.homebody{
+	display:flex;
+	height:100vh;
+	margin-top:3rem;
+}
+
+.ports{
+	display:flex;
+	flex-flow:row wrap;
+	/* overflow-y:scroll; */
+	width:100vw;
+	padding-left:1rem;
+}
+
+body{
+	margin:0px;
+}
+
+ul{
+	border-right:1px solid black;
+	width:11rem;
+	margin-top:0;
+	margin-bottom:0;
+	margin-right:0;
+	padding-left:1.5rem;
+	padding-top:1rem;
+	overflow-y:scroll;
+	height:100%;
+}
+
+ul li{
+	list-style-position: inside;
+	list-style-type: square;
+}
+
+h1{
+	text-align:center;
+	border-bottom:black solid 1px;
+	padding:1rem;
+	background:RGB(070,172,161);
+	color:white;
+	margin:0;
+	font-size:2.5rem;
+	position:relative;
+	width:100%;
+	top:3rem;
+	border:solid 0.2rem white;
+}
+
+/*새 포트 생성 폼*/
+
+.newportform{
+	height:28rem;
+	width:20rem;
+	display:none;
+	position:fixed;
+	top:10rem;
+	right:50rem;
+	flex-flow:column;
+	justify-content:space-evenly;
+	align-items:center;
+	border:solid black 0.01rem;
+	border-radius:5%;
+	box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	background:white;
+	}
+
+.newportsubmit,.newportquit{
+	margin-top:1.2rem;
+	height:2rem;
+	width:5rem;
+	margin-bottom:1rem;
+	background:#04AA6D;
+	border-radius:0.5rem;
+	border: none;
+  cursor: pointer;
+	color:white;
+	opacity:0.8;
+}
+
+.newportsubmit {
+  color: black;
+  border: 0.2rem solid #4CAF50;
+}
+
+.newportsubmit:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.newportquit{
+	background-color: red;
+	margin-right:1rem;
+}
+
+.newportquit:hover{
+	background-color: #f44336;
+  color: white;
+}
+
+.port_name_part{
+	display:flex;
+	flex-flow:row nowrap;
+	align-items:center;
+	height:1.2rem;
+}
+
+.port_name_part input{
+	margin:0.2rem;
+	height:1.5rem;
+}
+
+.TR{
+	height:1rem;
+}
+
+/*새 노드 생성 폼*/
+
+.newnodeform{
+	display:none;
+	position:fixed;
+	flex-flow:row wrap;
+	justify-content:center;
+	width:10rem;
+	position:absolute;
+	left:0.1rem;
+	box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border:0.01rem solid black;
+	border-radius:5%;
+	background:white;
+}
+
+.newnodetext{
+	display:block;
+
+	background:#f1f1f1;
+	height:2rem;
+	text-align:center;
+	width:8.5rem;
+}
+
+.newnodequit,.newnodesubmit{
+	display:block;
+	margin-top:1rem;
+	height:2rem;
+	margin-bottom:1rem;
+	background:#04AA6D;
+	border: none;
+  cursor: pointer;
+	color:white;
+	opacity:0.8;
+}
+
+.newnodequit{
+	background-color: red;
+	margin-right:1rem;
+}
+
+
+/*버튼들 관리*/
+
+.deleteform{
+	display:inline;
+}
+
+.deletenode,.createnode{
+	height:3rem;
+	width:3rem;
+	font-weight:900;
+	font-size:2rem;
+	background:black;
+	color:white;
+	border:0.1rem solid black;
+	border-radius:50%;
+	margin-top:3rem;
+	box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+
+/* 포트 관리 */
+
+/*CDF*/
+
+
+
+/*mdf 100 =>지금의 PORT templete */
+
+.port_controlers{
+	display:flex;
+	flex-flow:row wrap;
+	height:9.3rem;
+	width:13rem;
+}
+
+.deleteport,.spread{
+	height:1.7rem;
+	width:13rem;
+}
+
+.set_disable_select,.set_disable_button,.remove_disable_select,.remove_disable_button{
+	height:1.7rem;
+	width:6.32rem;
+}
+
+.set_disable_button{
+	font-weight:900;
+	color:white;
+	background:red;
+}
+
+.remove_disable_button{
+	font-weight:900;
+	color:white;
+	background:green;
+}
+
+#disable_party_block{
+	width:13rem;
+}
+
+.deleteport{
+	font-weight:900;
+	color:white;
+	background:red;
+}
+
+.mdf100 .portsinport{
+	width:13rem;
+	display:flex;
+	flex-flow:wrap;
+}
+
+.mdf100{
+	margin-top:1rem;
+	margin-bottom:6.2rem;
+	margin-right:2rem;
+	display:flex;
+	flex-flow:wrap;
+	width:13rem;
+}
+
+.mdf100 .num{
+	border:solid black 0.1rem;
+	width:2.40109rem;
+	margin:0;
+	height:2rem;
+	text-align:center;
+	font-size:1rem;
+	font-weight:400;
+}
+
+.mdf100 .nodetitle,.mdf100 .porttitle{
+	text-align:center;
+	width:13rem;
+}
+
+.mdf100 .h{
+	border:solid black 0.1rem;
+	text-align:center;
+	background:gray;
+	color:white;
+}
+
+.mdf100 .port{
+	width:2.40109rem;
+}
+.mdf100 .use{
+	width:7rem;
+}
+.mdf100 .refer{
+	width:3rem
+}
+
+.mdf100 .usage{
+	width:6.701rem;
+	text-align:center;
+}
+
+.mdf100 .ref{
+	width:2.7rem;
+	text-align:center;
+}
+
+.mdf100 .label,.display{
+	border:solid black 0.1rem;
+	text-align:center;
+}
+
+.mdf100 .display{
+	width:2.1rem;
+}
+
+.mdf100 .ing{
+	width:4rem;
+	background:green;
+}
+
+.mdf100 .disable{
+	width:4rem;
+	background:red;
+}
+.mdf100 .bridge{
+	width:4rem;
+	background:orange;
+}
+
+
+/*cdf128*/
+
+.cdf128{
+	margin-top:2rem;
+	margin-bottom:2rem;
+	margin-right:2rem;
+	/*border:solid black 0.1rem;*/
+}
+
+.cdf128 .header{
+	display:flex;
+
+}
+
+.cdf128 .title{
+	display:flex;
+	flex-flow:column;
+
+	margin-right:2rem;
+}
+
+.cdf128 .ports{
+	display:flex;
+	flex-flow:column-reverse wrap;
+	width:47rem;
+	height:13rem;
+}
+
+.cdf128 .spread{
+	margin-top:1rem;
+	width:5rem;
+	height:1.7rem;
+	align-self:center;
+}
+
+.cdf128 .num{
+	border:solid black 0.1rem;
+	width:1.3rem;
+	height:3rem;
+	font-size:0.8rem;
+	text-align:center;
+}
+
+.cdf128 .nodetitle{
+
+	text-align:center;
+	width:10rem;
+}
+
+.cdf128 .porttitle{
+
+	text-align:center;
+	width:10rem;
+	border-top:solid black 0.1rem;
+}
+
+.cdf128 .h{
+	border:solid black 0.1rem;
+	text-align:center;
+	background:gray;
+	color:white;
+}
+.cdf128 .port{
+	width:2.40109rem;
+}
+.cdf128 .use{
+	width:7rem;
+}
+.cdf128 .refer{
+	width:3rem
+}
+
+.cdf128 .usage{
+	width:6.701rem;
+	text-align:center;
+}
+
+.cdf128 .ref{
+	width:2.7rem;
+	text-align:center;
+}
+
+.cdf128 .label,.cdf128 .display{
+	margin-top:1rem;
+	border:solid black 0.1rem;
+	text-align:center;
+}
+
+.cdf128 .display{
+	width:2.1rem;
+}
+
+.cdf128 .ing{
+	width:4rem;
+	background:green;
+}
+
+.cdf128 .disable{
+	width:4rem;
+	background:red;
+}
+.cdf128 .bridge{
+	width:4rem;
+	background:orange;
+}

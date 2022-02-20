@@ -1,0 +1,346 @@
+<!--sharenumS0sharenumS--><!--OppNodeS전차소대OppNodeS-->
+
+	<script>
+
+	function spread_p0(self){
+		if(self.value === '펼쳐보기'){
+			if(128<33){
+				document.querySelector("#p0").style.width = 13*Math.ceil(128/4) + 'rem';
+				document.querySelector("#p0 .portsinport").style.width = 13*Math.ceil(128/4) + 'rem';
+			}else if(128<65){
+				document.querySelector("#p0").style.width = '104rem';
+				document.querySelector("#p0 .portsinport").style.width = '104rem';
+			}
+
+			for(var i = 1;i<=128;i++){
+				document.querySelector('#p0 .u'+i).style.display='inline';
+				document.querySelector('#p0 .r'+i).style.display='inline';
+			}
+			self.value = '닫기'
+		}else{
+			document.querySelector("#p0 .portsinport").style.width = '54.72rem';
+			document.querySelector("#p0").style.width = '54.72rem';
+
+			for(var i = 1;i<=128;i++){
+				document.querySelector('#p0 .u'+i).style.display='none';
+				document.querySelector('#p0 .r'+i).style.display='none';
+			}
+			self.value = '펼쳐보기'
+		}
+	}
+
+	</script>
+
+	<div class="CDF_E1" id="p0">
+
+	<div id="disable_party_none" style="display: none">
+	<form action="/delete_port" method="post" class="deleting_port" onsubmit="return checkDeletePort(0)">
+	    <input type="hidden" name="thisnode" value="구시험실">
+	    <input type="hidden" name="numin" value="0">
+	    <input type="hidden" class="Oppnode" name="oppnode" value="전차소대">
+	    <input type="submit" class="deleteport" id="deleteport_none" title="포트 삭제" value="포트 삭제" style="display: none;">
+	</form>
+
+	  <select class="set_disable_select">
+	    <option selected></option><option class="diset1" value='1'>1번 포트</option><option class="diset2" value='2'>2번 포트</option><option class="diset3" value='3'>3번 포트</option><option class="diset4" value='4'>4번 포트</option><option class="diset5" value='5'>5번 포트</option><option class="diset6" value='6'>6번 포트</option><option class="diset7" value='7'>7번 포트</option><option class="diset8" value='8'>8번 포트</option><option class="diset9" value='9'>9번 포트</option><option class="diset10" value='10'>10번 포트</option><option class="diset11" value='11'>11번 포트</option><option class="diset12" value='12'>12번 포트</option><option class="diset13" value='13'>13번 포트</option><option class="diset14" value='14'>14번 포트</option><option class="diset15" value='15'>15번 포트</option><option class="diset16" value='16'>16번 포트</option><option class="diset17" value='17'>17번 포트</option><option class="diset18" value='18'>18번 포트</option><option class="diset19" value='19'>19번 포트</option><option class="diset20" value='20'>20번 포트</option><option class="diset21" value='21'>21번 포트</option><option class="diset22" value='22'>22번 포트</option><option class="diset23" value='23'>23번 포트</option><option class="diset24" value='24'>24번 포트</option><option class="diset25" value='25'>25번 포트</option><option class="diset26" value='26'>26번 포트</option><option class="diset27" value='27'>27번 포트</option><option class="diset28" value='28'>28번 포트</option><option class="diset29" value='29'>29번 포트</option><option class="diset30" value='30'>30번 포트</option><option class="diset31" value='31'>31번 포트</option><option class="diset32" value='32'>32번 포트</option><option class="diset33" value='33'>33번 포트</option><option class="diset34" value='34'>34번 포트</option><option class="diset35" value='35'>35번 포트</option><option class="diset36" value='36'>36번 포트</option><option class="diset37" value='37'>37번 포트</option><option class="diset38" value='38'>38번 포트</option><option class="diset39" value='39'>39번 포트</option><option class="diset40" value='40'>40번 포트</option><option class="diset41" value='41'>41번 포트</option><option class="diset42" value='42'>42번 포트</option><option class="diset43" value='43'>43번 포트</option><option class="diset44" value='44'>44번 포트</option><option class="diset45" value='45'>45번 포트</option><option class="diset46" value='46'>46번 포트</option><option class="diset47" value='47'>47번 포트</option><option class="diset48" value='48'>48번 포트</option><option class="diset49" value='49'>49번 포트</option><option class="diset50" value='50'>50번 포트</option><option class="diset51" value='51'>51번 포트</option><option class="diset52" value='52'>52번 포트</option><option class="diset53" value='53'>53번 포트</option><option class="diset54" value='54'>54번 포트</option><option class="diset55" value='55'>55번 포트</option><option class="diset56" value='56'>56번 포트</option><option class="diset57" value='57'>57번 포트</option><option class="diset58" value='58'>58번 포트</option><option class="diset59" value='59'>59번 포트</option><option class="diset60" value='60'>60번 포트</option><option class="diset61" value='61'>61번 포트</option><option class="diset62" value='62'>62번 포트</option><option class="diset63" value='63'>63번 포트</option><option class="diset64" value='64'>64번 포트</option><option class="diset65" value='65'>65번 포트</option><option class="diset66" value='66'>66번 포트</option><option class="diset67" value='67'>67번 포트</option><option class="diset68" value='68'>68번 포트</option><option class="diset69" value='69'>69번 포트</option><option class="diset70" value='70'>70번 포트</option><option class="diset71" value='71'>71번 포트</option><option class="diset72" value='72'>72번 포트</option><option class="diset73" value='73'>73번 포트</option><option class="diset74" value='74'>74번 포트</option><option class="diset75" value='75'>75번 포트</option><option class="diset76" value='76'>76번 포트</option><option class="diset77" value='77'>77번 포트</option><option class="diset78" value='78'>78번 포트</option><option class="diset79" value='79'>79번 포트</option><option class="diset80" value='80'>80번 포트</option><option class="diset81" value='81'>81번 포트</option><option class="diset82" value='82'>82번 포트</option><option class="diset83" value='83'>83번 포트</option><option class="diset84" value='84'>84번 포트</option><option class="diset85" value='85'>85번 포트</option><option class="diset86" value='86'>86번 포트</option><option class="diset87" value='87'>87번 포트</option><option class="diset88" value='88'>88번 포트</option><option class="diset89" value='89'>89번 포트</option><option class="diset90" value='90'>90번 포트</option><option class="diset91" value='91'>91번 포트</option><option class="diset92" value='92'>92번 포트</option><option class="diset93" value='93'>93번 포트</option><option class="diset94" value='94'>94번 포트</option><option class="diset95" value='95'>95번 포트</option><option class="diset96" value='96'>96번 포트</option><option class="diset97" value='97'>97번 포트</option><option class="diset98" value='98'>98번 포트</option><option class="diset99" value='99'>99번 포트</option><option class="diset100" value='100'>100번 포트</option><option class="diset101" value='101'>101번 포트</option><option class="diset102" value='102'>102번 포트</option><option class="diset103" value='103'>103번 포트</option><option class="diset104" value='104'>104번 포트</option><option class="diset105" value='105'>105번 포트</option><option class="diset106" value='106'>106번 포트</option><option class="diset107" value='107'>107번 포트</option><option class="diset108" value='108'>108번 포트</option><option class="diset109" value='109'>109번 포트</option><option class="diset110" value='110'>110번 포트</option><option class="diset111" value='111'>111번 포트</option><option class="diset112" value='112'>112번 포트</option><option class="diset113" value='113'>113번 포트</option><option class="diset114" value='114'>114번 포트</option><option class="diset115" value='115'>115번 포트</option><option class="diset116" value='116'>116번 포트</option><option class="diset117" value='117'>117번 포트</option><option class="diset118" value='118'>118번 포트</option><option class="diset119" value='119'>119번 포트</option><option class="diset120" value='120'>120번 포트</option><option class="diset121" value='121'>121번 포트</option><option class="diset122" value='122'>122번 포트</option><option class="diset123" value='123'>123번 포트</option><option class="diset124" value='124'>124번 포트</option><option class="diset125" value='125'>125번 포트</option><option class="diset126" value='126'>126번 포트</option><option class="diset127" value='127'>127번 포트</option><option class="diset128" value='128'>128번 포트</option>
+	  </select>
+	  <input type="button" class="set_disable_button" id=0 value="불량설정" onclick="setting_disable(this)">
+	  <select class="remove_disable_select">
+	    <option selected></option><option class="disrem1" value='1' style="display:none">1번 포트</option><option class="disrem2" value='2' style="display:none">2번 포트</option><option class="disrem3" value='3' style="display:none">3번 포트</option><option class="disrem4" value='4' style="display:none">4번 포트</option><option class="disrem5" value='5' style="display:none">5번 포트</option><option class="disrem6" value='6' style="display:none">6번 포트</option><option class="disrem7" value='7' style="display:none">7번 포트</option><option class="disrem8" value='8' style="display:none">8번 포트</option><option class="disrem9" value='9' style="display:none">9번 포트</option><option class="disrem10" value='10' style="display:none">10번 포트</option><option class="disrem11" value='11' style="display:none">11번 포트</option><option class="disrem12" value='12' style="display:none">12번 포트</option><option class="disrem13" value='13' style="display:none">13번 포트</option><option class="disrem14" value='14' style="display:none">14번 포트</option><option class="disrem15" value='15' style="display:none">15번 포트</option><option class="disrem16" value='16' style="display:none">16번 포트</option><option class="disrem17" value='17' style="display:none">17번 포트</option><option class="disrem18" value='18' style="display:none">18번 포트</option><option class="disrem19" value='19' style="display:none">19번 포트</option><option class="disrem20" value='20' style="display:none">20번 포트</option><option class="disrem21" value='21' style="display:none">21번 포트</option><option class="disrem22" value='22' style="display:none">22번 포트</option><option class="disrem23" value='23' style="display:none">23번 포트</option><option class="disrem24" value='24' style="display:none">24번 포트</option><option class="disrem25" value='25' style="display:none">25번 포트</option><option class="disrem26" value='26' style="display:none">26번 포트</option><option class="disrem27" value='27' style="display:none">27번 포트</option><option class="disrem28" value='28' style="display:none">28번 포트</option><option class="disrem29" value='29' style="display:none">29번 포트</option><option class="disrem30" value='30' style="display:none">30번 포트</option><option class="disrem31" value='31' style="display:none">31번 포트</option><option class="disrem32" value='32' style="display:none">32번 포트</option><option class="disrem33" value='33' style="display:none">33번 포트</option><option class="disrem34" value='34' style="display:none">34번 포트</option><option class="disrem35" value='35' style="display:none">35번 포트</option><option class="disrem36" value='36' style="display:none">36번 포트</option><option class="disrem37" value='37' style="display:none">37번 포트</option><option class="disrem38" value='38' style="display:none">38번 포트</option><option class="disrem39" value='39' style="display:none">39번 포트</option><option class="disrem40" value='40' style="display:none">40번 포트</option><option class="disrem41" value='41' style="display:none">41번 포트</option><option class="disrem42" value='42' style="display:none">42번 포트</option><option class="disrem43" value='43' style="display:none">43번 포트</option><option class="disrem44" value='44' style="display:none">44번 포트</option><option class="disrem45" value='45' style="display:none">45번 포트</option><option class="disrem46" value='46' style="display:none">46번 포트</option><option class="disrem47" value='47' style="display:none">47번 포트</option><option class="disrem48" value='48' style="display:none">48번 포트</option><option class="disrem49" value='49' style="display:none">49번 포트</option><option class="disrem50" value='50' style="display:none">50번 포트</option><option class="disrem51" value='51' style="display:none">51번 포트</option><option class="disrem52" value='52' style="display:none">52번 포트</option><option class="disrem53" value='53' style="display:none">53번 포트</option><option class="disrem54" value='54' style="display:none">54번 포트</option><option class="disrem55" value='55' style="display:none">55번 포트</option><option class="disrem56" value='56' style="display:none">56번 포트</option><option class="disrem57" value='57' style="display:none">57번 포트</option><option class="disrem58" value='58' style="display:none">58번 포트</option><option class="disrem59" value='59' style="display:none">59번 포트</option><option class="disrem60" value='60' style="display:none">60번 포트</option><option class="disrem61" value='61' style="display:none">61번 포트</option><option class="disrem62" value='62' style="display:none">62번 포트</option><option class="disrem63" value='63' style="display:none">63번 포트</option><option class="disrem64" value='64' style="display:none">64번 포트</option><option class="disrem65" value='65' style="display:none">65번 포트</option><option class="disrem66" value='66' style="display:none">66번 포트</option><option class="disrem67" value='67' style="display:none">67번 포트</option><option class="disrem68" value='68' style="display:none">68번 포트</option><option class="disrem69" value='69' style="display:none">69번 포트</option><option class="disrem70" value='70' style="display:none">70번 포트</option><option class="disrem71" value='71' style="display:none">71번 포트</option><option class="disrem72" value='72' style="display:none">72번 포트</option><option class="disrem73" value='73' style="display:none">73번 포트</option><option class="disrem74" value='74' style="display:none">74번 포트</option><option class="disrem75" value='75' style="display:none">75번 포트</option><option class="disrem76" value='76' style="display:none">76번 포트</option><option class="disrem77" value='77' style="display:none">77번 포트</option><option class="disrem78" value='78' style="display:none">78번 포트</option><option class="disrem79" value='79' style="display:none">79번 포트</option><option class="disrem80" value='80' style="display:none">80번 포트</option><option class="disrem81" value='81' style="display:none">81번 포트</option><option class="disrem82" value='82' style="display:none">82번 포트</option><option class="disrem83" value='83' style="display:none">83번 포트</option><option class="disrem84" value='84' style="display:none">84번 포트</option><option class="disrem85" value='85' style="display:none">85번 포트</option><option class="disrem86" value='86' style="display:none">86번 포트</option><option class="disrem87" value='87' style="display:none">87번 포트</option><option class="disrem88" value='88' style="display:none">88번 포트</option><option class="disrem89" value='89' style="display:none">89번 포트</option><option class="disrem90" value='90' style="display:none">90번 포트</option><option class="disrem91" value='91' style="display:none">91번 포트</option><option class="disrem92" value='92' style="display:none">92번 포트</option><option class="disrem93" value='93' style="display:none">93번 포트</option><option class="disrem94" value='94' style="display:none">94번 포트</option><option class="disrem95" value='95' style="display:none">95번 포트</option><option class="disrem96" value='96' style="display:none">96번 포트</option><option class="disrem97" value='97' style="display:none">97번 포트</option><option class="disrem98" value='98' style="display:none">98번 포트</option><option class="disrem99" value='99' style="display:none">99번 포트</option><option class="disrem100" value='100' style="display:none">100번 포트</option><option class="disrem101" value='101' style="display:none">101번 포트</option><option class="disrem102" value='102' style="display:none">102번 포트</option><option class="disrem103" value='103' style="display:none">103번 포트</option><option class="disrem104" value='104' style="display:none">104번 포트</option><option class="disrem105" value='105' style="display:none">105번 포트</option><option class="disrem106" value='106' style="display:none">106번 포트</option><option class="disrem107" value='107' style="display:none">107번 포트</option><option class="disrem108" value='108' style="display:none">108번 포트</option><option class="disrem109" value='109' style="display:none">109번 포트</option><option class="disrem110" value='110' style="display:none">110번 포트</option><option class="disrem111" value='111' style="display:none">111번 포트</option><option class="disrem112" value='112' style="display:none">112번 포트</option><option class="disrem113" value='113' style="display:none">113번 포트</option><option class="disrem114" value='114' style="display:none">114번 포트</option><option class="disrem115" value='115' style="display:none">115번 포트</option><option class="disrem116" value='116' style="display:none">116번 포트</option><option class="disrem117" value='117' style="display:none">117번 포트</option><option class="disrem118" value='118' style="display:none">118번 포트</option><option class="disrem119" value='119' style="display:none">119번 포트</option><option class="disrem120" value='120' style="display:none">120번 포트</option><option class="disrem121" value='121' style="display:none">121번 포트</option><option class="disrem122" value='122' style="display:none">122번 포트</option><option class="disrem123" value='123' style="display:none">123번 포트</option><option class="disrem124" value='124' style="display:none">124번 포트</option><option class="disrem125" value='125' style="display:none">125번 포트</option><option class="disrem126" value='126' style="display:none">126번 포트</option><option class="disrem127" value='127' style="display:none">127번 포트</option><option class="disrem128" value='128' style="display:none">128번 포트</option>
+	  </select>
+	  <input type="button" class="remove_disable_button" id=0 value="불량해제" onclick="removing_disable(this)">
+	</div>
+
+	<!--portnumberS128portnumberE-->
+	<input type="hidden" class="port_number" value="128">
+
+	<div class="port_controlers">
+	<span style="border-bottom:solid 0.5rem gray" class="nodetitle">
+
+	<!--sharnuminside0sharenuminside-->
+	<input type="hidden" class="port_sharenum" value="0">
+
+	<!--port'snodetitleS-->전차소대<!--port'snodetitleE-->
+	</span>
+	<span class="porttitle">
+	<input type="hidden" class="port_Name" value="dff">
+	<!--port'sporttitleS-->dff<!--port'sporttitleE-->
+	</span>
+	<span class="label able">사용가능</span>
+	<span id="capable" class="display">128</span>
+	<span class="label disable">불량</span>
+	<span id="Disable" class="display">0</span>
+	<span class="label ing">사용중</span>
+	<span id="occupying" class="display">0</span>
+	<span class="label bridge">브릿지</span>
+	<span id="Bridge" class="display">0</span>
+
+	<input type="button" class="spread" value="펼쳐보기" onclick="spread_p0(this)">
+	<span class="h port">포트</span>
+	<span class="h use">용도</span>
+	<span class="h refer">비고</span>
+
+	</div>
+
+	<div class="portsinport" style="width:54.72rem">
+
+	
+		<div class="CDF_E1_32row"><div class="CDF_E1_row"><span id="nUm" class="num n1">1</span><input type="text" class="usage u1" style="display:none;">
+		<input type="text" class="ref r1" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n2">2</span><input type="text" class="usage u2" style="display:none;">
+		<input type="text" class="ref r2" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n3">3</span><input type="text" class="usage u3" style="display:none;">
+		<input type="text" class="ref r3" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n4">4</span><input type="text" class="usage u4" style="display:none;">
+		<input type="text" class="ref r4" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n5">5</span><input type="text" class="usage u5" style="display:none;">
+		<input type="text" class="ref r5" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n6">6</span><input type="text" class="usage u6" style="display:none;">
+		<input type="text" class="ref r6" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n7">7</span><input type="text" class="usage u7" style="display:none;">
+		<input type="text" class="ref r7" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n8">8</span><input type="text" class="usage u8" style="display:none;">
+		<input type="text" class="ref r8" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n9">9</span><input type="text" class="usage u9" style="display:none;">
+		<input type="text" class="ref r9" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n10">10</span><input type="text" class="usage u10" style="display:none;">
+		<input type="text" class="ref r10" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n11">11</span><input type="text" class="usage u11" style="display:none;">
+		<input type="text" class="ref r11" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n12">12</span><input type="text" class="usage u12" style="display:none;">
+		<input type="text" class="ref r12" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n13">13</span><input type="text" class="usage u13" style="display:none;">
+		<input type="text" class="ref r13" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n14">14</span><input type="text" class="usage u14" style="display:none;">
+		<input type="text" class="ref r14" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n15">15</span><input type="text" class="usage u15" style="display:none;">
+		<input type="text" class="ref r15" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n16">16</span><input type="text" class="usage u16" style="display:none;">
+		<input type="text" class="ref r16" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n17">17</span><input type="text" class="usage u17" style="display:none;">
+		<input type="text" class="ref r17" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n18">18</span><input type="text" class="usage u18" style="display:none;">
+		<input type="text" class="ref r18" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n19">19</span><input type="text" class="usage u19" style="display:none;">
+		<input type="text" class="ref r19" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n20">20</span><input type="text" class="usage u20" style="display:none;">
+		<input type="text" class="ref r20" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n21">21</span><input type="text" class="usage u21" style="display:none;">
+		<input type="text" class="ref r21" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n22">22</span><input type="text" class="usage u22" style="display:none;">
+		<input type="text" class="ref r22" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n23">23</span><input type="text" class="usage u23" style="display:none;">
+		<input type="text" class="ref r23" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n24">24</span><input type="text" class="usage u24" style="display:none;">
+		<input type="text" class="ref r24" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n25">25</span><input type="text" class="usage u25" style="display:none;">
+		<input type="text" class="ref r25" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n26">26</span><input type="text" class="usage u26" style="display:none;">
+		<input type="text" class="ref r26" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n27">27</span><input type="text" class="usage u27" style="display:none;">
+		<input type="text" class="ref r27" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n28">28</span><input type="text" class="usage u28" style="display:none;">
+		<input type="text" class="ref r28" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n29">29</span><input type="text" class="usage u29" style="display:none;">
+		<input type="text" class="ref r29" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n30">30</span><input type="text" class="usage u30" style="display:none;">
+		<input type="text" class="ref r30" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n31">31</span><input type="text" class="usage u31" style="display:none;">
+		<input type="text" class="ref r31" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n32">32</span><input type="text" class="usage u32" style="display:none;">
+		<input type="text" class="ref r32" style="display:none;"></div></div>
+		<div class="CDF_E1_32row"><div class="CDF_E1_row"><span id="nUm" class="num n33">33</span><input type="text" class="usage u33" style="display:none;">
+		<input type="text" class="ref r33" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n34">34</span><input type="text" class="usage u34" style="display:none;">
+		<input type="text" class="ref r34" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n35">35</span><input type="text" class="usage u35" style="display:none;">
+		<input type="text" class="ref r35" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n36">36</span><input type="text" class="usage u36" style="display:none;">
+		<input type="text" class="ref r36" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n37">37</span><input type="text" class="usage u37" style="display:none;">
+		<input type="text" class="ref r37" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n38">38</span><input type="text" class="usage u38" style="display:none;">
+		<input type="text" class="ref r38" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n39">39</span><input type="text" class="usage u39" style="display:none;">
+		<input type="text" class="ref r39" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n40">40</span><input type="text" class="usage u40" style="display:none;">
+		<input type="text" class="ref r40" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n41">41</span><input type="text" class="usage u41" style="display:none;">
+		<input type="text" class="ref r41" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n42">42</span><input type="text" class="usage u42" style="display:none;">
+		<input type="text" class="ref r42" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n43">43</span><input type="text" class="usage u43" style="display:none;">
+		<input type="text" class="ref r43" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n44">44</span><input type="text" class="usage u44" style="display:none;">
+		<input type="text" class="ref r44" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n45">45</span><input type="text" class="usage u45" style="display:none;">
+		<input type="text" class="ref r45" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n46">46</span><input type="text" class="usage u46" style="display:none;">
+		<input type="text" class="ref r46" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n47">47</span><input type="text" class="usage u47" style="display:none;">
+		<input type="text" class="ref r47" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n48">48</span><input type="text" class="usage u48" style="display:none;">
+		<input type="text" class="ref r48" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n49">49</span><input type="text" class="usage u49" style="display:none;">
+		<input type="text" class="ref r49" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n50">50</span><input type="text" class="usage u50" style="display:none;">
+		<input type="text" class="ref r50" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n51">51</span><input type="text" class="usage u51" style="display:none;">
+		<input type="text" class="ref r51" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n52">52</span><input type="text" class="usage u52" style="display:none;">
+		<input type="text" class="ref r52" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n53">53</span><input type="text" class="usage u53" style="display:none;">
+		<input type="text" class="ref r53" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n54">54</span><input type="text" class="usage u54" style="display:none;">
+		<input type="text" class="ref r54" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n55">55</span><input type="text" class="usage u55" style="display:none;">
+		<input type="text" class="ref r55" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n56">56</span><input type="text" class="usage u56" style="display:none;">
+		<input type="text" class="ref r56" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n57">57</span><input type="text" class="usage u57" style="display:none;">
+		<input type="text" class="ref r57" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n58">58</span><input type="text" class="usage u58" style="display:none;">
+		<input type="text" class="ref r58" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n59">59</span><input type="text" class="usage u59" style="display:none;">
+		<input type="text" class="ref r59" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n60">60</span><input type="text" class="usage u60" style="display:none;">
+		<input type="text" class="ref r60" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n61">61</span><input type="text" class="usage u61" style="display:none;">
+		<input type="text" class="ref r61" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n62">62</span><input type="text" class="usage u62" style="display:none;">
+		<input type="text" class="ref r62" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n63">63</span><input type="text" class="usage u63" style="display:none;">
+		<input type="text" class="ref r63" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n64">64</span><input type="text" class="usage u64" style="display:none;">
+		<input type="text" class="ref r64" style="display:none;"></div></div>
+		<div class="CDF_E1_32row"><div class="CDF_E1_row"><span id="nUm" class="num n65">65</span><input type="text" class="usage u65" style="display:none;">
+		<input type="text" class="ref r65" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n66">66</span><input type="text" class="usage u66" style="display:none;">
+		<input type="text" class="ref r66" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n67">67</span><input type="text" class="usage u67" style="display:none;">
+		<input type="text" class="ref r67" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n68">68</span><input type="text" class="usage u68" style="display:none;">
+		<input type="text" class="ref r68" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n69">69</span><input type="text" class="usage u69" style="display:none;">
+		<input type="text" class="ref r69" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n70">70</span><input type="text" class="usage u70" style="display:none;">
+		<input type="text" class="ref r70" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n71">71</span><input type="text" class="usage u71" style="display:none;">
+		<input type="text" class="ref r71" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n72">72</span><input type="text" class="usage u72" style="display:none;">
+		<input type="text" class="ref r72" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n73">73</span><input type="text" class="usage u73" style="display:none;">
+		<input type="text" class="ref r73" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n74">74</span><input type="text" class="usage u74" style="display:none;">
+		<input type="text" class="ref r74" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n75">75</span><input type="text" class="usage u75" style="display:none;">
+		<input type="text" class="ref r75" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n76">76</span><input type="text" class="usage u76" style="display:none;">
+		<input type="text" class="ref r76" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n77">77</span><input type="text" class="usage u77" style="display:none;">
+		<input type="text" class="ref r77" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n78">78</span><input type="text" class="usage u78" style="display:none;">
+		<input type="text" class="ref r78" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n79">79</span><input type="text" class="usage u79" style="display:none;">
+		<input type="text" class="ref r79" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n80">80</span><input type="text" class="usage u80" style="display:none;">
+		<input type="text" class="ref r80" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n81">81</span><input type="text" class="usage u81" style="display:none;">
+		<input type="text" class="ref r81" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n82">82</span><input type="text" class="usage u82" style="display:none;">
+		<input type="text" class="ref r82" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n83">83</span><input type="text" class="usage u83" style="display:none;">
+		<input type="text" class="ref r83" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n84">84</span><input type="text" class="usage u84" style="display:none;">
+		<input type="text" class="ref r84" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n85">85</span><input type="text" class="usage u85" style="display:none;">
+		<input type="text" class="ref r85" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n86">86</span><input type="text" class="usage u86" style="display:none;">
+		<input type="text" class="ref r86" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n87">87</span><input type="text" class="usage u87" style="display:none;">
+		<input type="text" class="ref r87" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n88">88</span><input type="text" class="usage u88" style="display:none;">
+		<input type="text" class="ref r88" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n89">89</span><input type="text" class="usage u89" style="display:none;">
+		<input type="text" class="ref r89" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n90">90</span><input type="text" class="usage u90" style="display:none;">
+		<input type="text" class="ref r90" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n91">91</span><input type="text" class="usage u91" style="display:none;">
+		<input type="text" class="ref r91" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n92">92</span><input type="text" class="usage u92" style="display:none;">
+		<input type="text" class="ref r92" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n93">93</span><input type="text" class="usage u93" style="display:none;">
+		<input type="text" class="ref r93" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n94">94</span><input type="text" class="usage u94" style="display:none;">
+		<input type="text" class="ref r94" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n95">95</span><input type="text" class="usage u95" style="display:none;">
+		<input type="text" class="ref r95" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n96">96</span><input type="text" class="usage u96" style="display:none;">
+		<input type="text" class="ref r96" style="display:none;"></div></div>
+		<div class="CDF_E1_32row"><div class="CDF_E1_row"><span id="nUm" class="num n97">97</span><input type="text" class="usage u97" style="display:none;">
+		<input type="text" class="ref r97" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n98">98</span><input type="text" class="usage u98" style="display:none;">
+		<input type="text" class="ref r98" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n99">99</span><input type="text" class="usage u99" style="display:none;">
+		<input type="text" class="ref r99" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n100">100</span><input type="text" class="usage u100" style="display:none;">
+		<input type="text" class="ref r100" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n101">101</span><input type="text" class="usage u101" style="display:none;">
+		<input type="text" class="ref r101" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n102">102</span><input type="text" class="usage u102" style="display:none;">
+		<input type="text" class="ref r102" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n103">103</span><input type="text" class="usage u103" style="display:none;">
+		<input type="text" class="ref r103" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n104">104</span><input type="text" class="usage u104" style="display:none;">
+		<input type="text" class="ref r104" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n105">105</span><input type="text" class="usage u105" style="display:none;">
+		<input type="text" class="ref r105" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n106">106</span><input type="text" class="usage u106" style="display:none;">
+		<input type="text" class="ref r106" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n107">107</span><input type="text" class="usage u107" style="display:none;">
+		<input type="text" class="ref r107" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n108">108</span><input type="text" class="usage u108" style="display:none;">
+		<input type="text" class="ref r108" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n109">109</span><input type="text" class="usage u109" style="display:none;">
+		<input type="text" class="ref r109" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n110">110</span><input type="text" class="usage u110" style="display:none;">
+		<input type="text" class="ref r110" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n111">111</span><input type="text" class="usage u111" style="display:none;">
+		<input type="text" class="ref r111" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n112">112</span><input type="text" class="usage u112" style="display:none;">
+		<input type="text" class="ref r112" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n113">113</span><input type="text" class="usage u113" style="display:none;">
+		<input type="text" class="ref r113" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n114">114</span><input type="text" class="usage u114" style="display:none;">
+		<input type="text" class="ref r114" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n115">115</span><input type="text" class="usage u115" style="display:none;">
+		<input type="text" class="ref r115" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n116">116</span><input type="text" class="usage u116" style="display:none;">
+		<input type="text" class="ref r116" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n117">117</span><input type="text" class="usage u117" style="display:none;">
+		<input type="text" class="ref r117" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n118">118</span><input type="text" class="usage u118" style="display:none;">
+		<input type="text" class="ref r118" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n119">119</span><input type="text" class="usage u119" style="display:none;">
+		<input type="text" class="ref r119" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n120">120</span><input type="text" class="usage u120" style="display:none;">
+		<input type="text" class="ref r120" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n121">121</span><input type="text" class="usage u121" style="display:none;">
+		<input type="text" class="ref r121" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n122">122</span><input type="text" class="usage u122" style="display:none;">
+		<input type="text" class="ref r122" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n123">123</span><input type="text" class="usage u123" style="display:none;">
+		<input type="text" class="ref r123" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n124">124</span><input type="text" class="usage u124" style="display:none;">
+		<input type="text" class="ref r124" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n125">125</span><input type="text" class="usage u125" style="display:none;">
+		<input type="text" class="ref r125" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n126">126</span><input type="text" class="usage u126" style="display:none;">
+		<input type="text" class="ref r126" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n127">127</span><input type="text" class="usage u127" style="display:none;">
+		<input type="text" class="ref r127" style="display:none;"></div>
+		<div class="CDF_E1_row"><span id="nUm" class="num n128">128</span><input type="text" class="usage u128" style="display:none;">
+		<input type="text" class="ref r128" style="display:none;"></div></div>
+	</div>
+	</div>
+	<!--OppNodeE전차소대OppNodeE--><!--sharenumE0sharenumE-->
